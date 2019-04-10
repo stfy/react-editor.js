@@ -1,6 +1,6 @@
 {
   "name": "@stfy/react-editor.js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "React wrapper component for Editor.js",
   "main": "lib/index.js",
   "scripts": {
