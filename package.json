@@ -2,7 +2,7 @@
   "name": "@stfy/react-editor.js",
   "version": "0.1.0",
   "description": "React wrapper component for Editor.js",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "clean": "rimraf lib dist",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --mode development",
