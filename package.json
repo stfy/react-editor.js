@@ -4,6 +4,7 @@
   "description": "React wrapper component for Editor.js",
   "main": "src/index.js",
   "scripts": {
+    "clean": "rimraf lib dist",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --mode development",
     "build": "babel src --out-dir lib",
     "build:umd": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
@@ -16,7 +17,7 @@
     "react",
     "editor.js"
   ],
-  "author": "Semenyuk Timofey<timsql@yandex.ru>",
+  "author": "Semenyuk Timofey <timsql@yandex.ru>",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.4.3",
@@ -49,6 +50,7 @@
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
     "prettier": "^1.16.4",
+    "rimraf": "^2.6.3",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "terser-webpack-plugin": "^1.2.3",
