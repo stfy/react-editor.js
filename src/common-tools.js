@@ -11,9 +11,8 @@ import Delimiter from '@editorjs/delimiter';
 import Raw from '@editorjs/raw';
 import Table from '@editorjs/table';
 import Warning from '@editorjs/warning';
-import Paragraph from '@editorjs/paragraph'
+import Paragraph from '@editorjs/paragraph';
 import Checklist from '@editorjs/checklist';
-
 
 export default {
   header: Header,
@@ -30,5 +29,5 @@ export default {
   table: Table,
   warning: Warning,
   paragraph: Paragraph,
-  checklist: Checklist
-}
+  checklist: Checklist,
+};
