@@ -1,0 +1,8 @@
+{
+  "editor.tabSize": 2,
+  "editor.suggest.localityBonus": true,
+  "editor.formatOnSave": true,
+  "emmet.syntaxProfiles": {
+    "javascript": "jsx",
+  }
+}
