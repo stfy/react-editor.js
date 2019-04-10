@@ -1,5 +1,5 @@
 {
-  "name": "react-editor.js",
+  "name": "@stfy/react-editor.js",
   "version": "1.0.0",
   "description": "React wrapper component for Editor.js",
   "main": "src/index.js",

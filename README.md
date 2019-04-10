@@ -5,11 +5,10 @@ React wrapper component for [Editor.js](https://github.com/codex-team/editor.js)
 ## Install
 
 ```bash
-npm install --save react-editor.js
-
+npm install --save @stfy/react-editor.js
 # or Yarn
 
-yarn add react-editor.js
+yarn add @stfy/react-editor.js
 ```
 
 ## Usage
@@ -18,7 +17,7 @@ yarn add react-editor.js
 ```jsx
 
 import React, { Component } from 'react'
-import Editor from 'react-editor.js'
+import Editor from '@stfy/react-editor.js'
 
 const App => (
   <>
