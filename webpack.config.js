@@ -1,24 +1,22 @@
 const path = require('path');
-const pkg = require('./package.json');
+// const pkg = require('./package.json');
 const TerserPlugin = require('terser-webpack-plugin');
-const webpack = require('webpack');
+// const webpack = require('webpack');
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/index'),
-
   target: 'web',
-  mode: 'production',
 
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'react-editorjs.js',
+    filename: 'react-editorjs.umd.js',
     library: ['React-EditorJS'],
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
   },
 
   resolve: {
     modules: [path.join(__dirname, 'src'), 'node_modules'],
-    extensions: ['.js']
+    extensions: ['.js'],
   },
   module: {
     rules: [
@@ -26,21 +24,17 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
         exclude: /(node_modules)/,
-      }]
+      },
+    ],
   },
 
-  plugins: [
-    new webpack.DefinePlugin({
-      NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'production'),
-    }),
-  ],
   devtool: false,
   optimization: {
     minimizer: [
       new TerserPlugin({
         cache: true,
-        parallel: true
-      })
-    ]
-  }
+        parallel: true,
+      }),
+    ],
+  },
 };
