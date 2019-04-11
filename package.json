@@ -6,7 +6,7 @@
   "module": "dist/react-editorjs.esm.js",
   "browser": "dist/react-editorjs.umd.js",
   "scripts": {
-    "clean": "rimraf lib dist",
+    "clean": "rimraf dist",
     "dev": "cross-env NODE_ENV=development webpack-dev-server example/index.js --mode development",
     "build": "rollup -c",
     "build:umd": "cross-env NODE_ENV=production webpack --mode production",
