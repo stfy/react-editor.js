@@ -1,6 +1,6 @@
 {
   "name": "@stfy/react-editor.js",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "React wrapper component for Editor.js",
   "main": "dist/react-editorjs.cjs.js",
   "module": "dist/react-editorjs.esm.js",
@@ -19,6 +19,10 @@
     "react",
     "editor.js"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stfy/react-editor.js"
+  },
   "author": "Semenyuk Timofey <timsql@yandex.ru>",
   "license": "MIT",
   "devDependencies": {
