@@ -1,15 +1,7 @@
 {
   "parser": "babel-eslint",
-  "plugins": [
-    "react",
-    "jest",
-    "prettier"
-  ],
-  "extends": [
-    "airbnb",
-    "plugin:prettier/recommended",
-    "prettier/react"
-  ],
+  "plugins": ["react", "jest", "prettier"],
+  "extends": ["airbnb", "plugin:prettier/recommended", "prettier/react"],
   "globals": {
     "React": true,
     "document": true,
@@ -20,10 +12,7 @@
   },
   "root": true,
   "rules": {
-    "linebreak-style": [
-      "error",
-      "windows"
-    ],
+    "linebreak-style": ["error", "windows"],
     "indent": [
       "error",
       2,
@@ -49,10 +38,7 @@
           "rendering"
         ],
         "groups": {
-          "rendering": [
-            "/^render.+$/",
-            "render"
-          ]
+          "rendering": ["/^render.+$/", "render"]
         }
       }
     ],
@@ -66,28 +52,14 @@
     "jsx-a11y/anchor-is-valid": [
       "warn",
       {
-        "aspects": [
-          "invalidHref"
-        ]
+        "aspects": ["invalidHref"]
       }
     ],
-    "react/jsx-boolean-value": [
-      "warn",
-      "never"
-    ],
-    "react/jsx-closing-bracket-location": [
-      "warn",
-      "after-props"
-    ],
-    "react/jsx-curly-spacing": [
-      "warn",
-      "never"
-    ],
+    "react/jsx-boolean-value": ["warn", "never"],
+    "react/jsx-closing-bracket-location": ["warn", "after-props"],
+    "react/jsx-curly-spacing": ["warn", "never"],
     "react/jsx-filename-extension": "off",
-    "react/jsx-first-prop-new-line": [
-      "warn",
-      "multiline"
-    ],
+    "react/jsx-first-prop-new-line": ["warn", "multiline"],
     "react/jsx-handler-names": [
       "warn",
       {
@@ -95,16 +67,12 @@
         "eventHandlerPropPrefix": "on"
       }
     ],
-    "react/jsx-indent": [
-      "warn",
-      2
-    ],
+    "react/jsx-indent": ["warn", 2],
     "react/jsx-key": "error",
-    "react/jsx-wrap-multilines": [
-      "warn"
-    ],
+    "react/jsx-wrap-multilines": ["warn"],
     "react/jsx-indent-props": 0,
     "react/prop-types": 0,
+    "react/forbid-prop-types": 0,
     "no-trailing-spaces": [
       2,
       {
