@@ -2,21 +2,36 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import EditorJS from '@editorjs/editorjs';
-
 import commonTools from './common-tools';
 
 class Editor extends Component {
+  static defaultProps = {
+    holderId: 'editorjs-holder',
+    customTools: {},
+    excludeDefaultTools: [],
+    onChange: () => {},
+    onReady: () => {},
+    data: {},
+    autofocus: true,
+  };
+
+  static propTypes = {
+    holderId: PropTypes.string,
+    customTools: PropTypes.object,
+    excludeDefaultTools: PropTypes.arrayOf(PropTypes.string),
+    onChange: PropTypes.func,
+    onReady: PropTypes.func,
+    data: PropTypes.object,
+    autofocus: PropTypes.bool,
+  };
+
   constructor(props) {
     super(props);
 
-    this._holderId = props.holderId;
     this._tools = this._initTools(props.tools, props.excludeTools);
 
     this._onChange = props.onChange;
     this._onReady = props.onReady;
-
-    this._initialData = props.data;
-    this._autofocus = props.autofocus;
 
     this._el = React.createRef();
   }
@@ -30,15 +45,30 @@ class Editor extends Component {
   }
 
   _initEditor = () => {
+    const { holderId, autofocus, data } = this.props;
+
     this.editor = new EditorJS({
-      holderId: this._holderId,
+      holderId,
+      autofocus,
+      data,
       tools: this._tools,
 
       onChange: this._handleChange,
       onReady: this._handleReady,
-      data: this._initialData,
-      autofocus: this._autofocus,
     });
+  };
+
+  _initTools = () => {
+    const { customTools, excludeDefaultTools } = this.props;
+    const toolsList = { ...commonTools, ...customTools };
+
+    if (excludeDefaultTools.length !== 0) {
+      return Object.keys(toolsList)
+        .filter(tool => !excludeDefaultTools.includes(tool))
+        .reduce((acc, curr) => ({ ...acc, [curr]: toolsList[curr] }), {});
+    }
+
+    return toolsList;
   };
 
   _handleChange = async () => {
@@ -50,46 +80,13 @@ class Editor extends Component {
     this._onReady();
   };
 
-  _initTools = (tools, excludeTools) => {
-    let toolsList = tools.length === 0 ? commonTools : tools;
-
-    if (excludeTools.length !== 0) {
-      toolsList = Object.keys(toolsList)
-        .filter(tool => !excludeTools.includes(tool))
-        .map(toolKey => ({ [toolKey]: toolsList[toolKey] }));
-    }
-
-    return toolsList.reduce((acc, current) => ({ ...acc, ...current }), {});
-  };
-
   render() {
+    const { holderId } = this.props;
     return React.createElement('div', {
-      id: this._holderId,
+      id: holderId,
       ref: this._el,
     });
   }
 }
-
-Editor.defaultProps = {
-  holderId: 'editorjs-holder',
-  tools: [],
-  excludeTools: [],
-  onChange: () => {},
-  onReady: () => {},
-  data: {},
-  autofocus: true,
-};
-// eslint-disable-next react/forbid-prop-types
-Editor.propTypes = {
-  holderId: PropTypes.string,
-  tools: PropTypes.arrayOf(
-    PropTypes.oneOfType(PropTypes.object, PropTypes.string),
-  ),
-  excludeTools: PropTypes.arrayOf(PropTypes.string),
-  onChange: PropTypes.func,
-  onReady: PropTypes.func,
-  data: PropTypes.shape,
-  autofocus: PropTypes.bool,
-};
 
 export default Editor;
