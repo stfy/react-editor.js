@@ -1,6 +1,6 @@
 # react-editor.js
 
-![Npm](https://img.shields.io/badge/npm-0.1.3-brightgreen.svg)
+![npm version](https://img.shields.io/npm/v/@stfy/react-editor.js.svg)
 
 React wrapper component for [Editor.js](https://github.com/codex-team/editor.js)
 
