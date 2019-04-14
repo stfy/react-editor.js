@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Editor from '../src';
+import Editor from '@stfy/react-editor.js';
 
 const el = document.getElementById('app');
 
