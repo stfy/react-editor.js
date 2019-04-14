@@ -13,13 +13,8 @@ export default [
       { file: pkg.module, format: 'es' },
       {
         file: pkg.browser,
-        format: 'iife',
+        format: 'umd',
         name,
-
-        globals: {
-          react: 'React',
-          '@editorjs/editorjs': 'EditorJS',
-        },
       },
     ],
     plugins: [

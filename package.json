@@ -4,7 +4,7 @@
   "description": "React wrapper component for Editor.js",
   "main": "dist/react-editorjs.cjs.js",
   "module": "dist/react-editorjs.esm.js",
-  "browser": "dist/react-editorjs.iife.js",
+  "browser": "dist/react-editorjs.umd.js",
   "scripts": {
     "clean": "rimraf dist",
     "dev": "cross-env NODE_ENV=development webpack-dev-server example/index.js --mode development",
@@ -13,7 +13,7 @@
     "lint": "eslint src",
     "test": "NODE_ENV=test mocha",
     "test:watch": "NODE_ENV=test mocha --watch",
-    "prepublishOnly": "npm run lint && npm run clean && npm run build && npm run build:umd"
+    "prepublishOnly": "npm run lint && npm run clean && npm run build"
   },
   "keywords": [
     "react",
@@ -75,6 +75,8 @@
     "@editorjs/quote": "^2.2.0",
     "@editorjs/raw": "^2.1.1",
     "@editorjs/table": "^1.2.0",
-    "@editorjs/warning": "^1.1.0"
+    "@editorjs/warning": "^1.1.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   }
 }
