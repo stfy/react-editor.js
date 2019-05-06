@@ -41,7 +41,7 @@ class Editor extends Component {
   }
 
   componentWillUnmount() {
-    this.editor.destroy();
+    this._destroyEditor();
   }
 
   _initEditor = () => {
@@ -56,6 +56,13 @@ class Editor extends Component {
       onChange: this._handleChange,
       onReady: this._handleReady,
     });
+  };
+
+  _destroyEditor = () => {
+    if (!this.editor) return;
+
+    this.editor.destroy();
+    this.editor = null;
   };
 
   _initTools = () => {
