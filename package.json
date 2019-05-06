@@ -1,6 +1,6 @@
 {
   "name": "@stfy/react-editor.js",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "React wrapper component for Editor.js",
   "main": "dist/react-editorjs.cjs.js",
   "module": "dist/react-editorjs.esm.js",
