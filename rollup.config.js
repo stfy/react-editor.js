@@ -6,7 +6,7 @@ const name = 'ReactEditor.js';
 
 export default [
   {
-    input: 'src/index.js',
+    input: 'src/index.ts',
     external: ['react'],
     output: [
       { file: pkg.main, format: 'cjs' },

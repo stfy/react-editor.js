@@ -1,7 +1,5 @@
 const path = require('path');
-// const pkg = require('./package.json');
 const TerserPlugin = require('terser-webpack-plugin');
-// const webpack = require('webpack');
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/index'),
