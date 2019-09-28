@@ -5,7 +5,7 @@
   "main": "dist/react-editorjs.js",
   "umd:main": "dist/react-editorjs.umd.js",
   "module": "dist/react-editorjs.esm.js",
-  "source": "src/index.js",
+  "source": "src/index.ts",
   "browser": "dist/react-editorjs.umd.js",
   "types": "dist/editor.d.ts",
   "scripts": {
