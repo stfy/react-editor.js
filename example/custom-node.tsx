@@ -1,13 +1,23 @@
 import React from 'react';
 import EditorJS from '../src/editor';
 
-export default () => {
+export const Example = () => {
+  const [editorData, setEditorData] = React.useState(null);
+  const component = React.useRef(null);
+
+  React.useEffect(() => {
+    console.log(component.current.editor);
+  });
 
   return (
     <>
-      <div id="editor-container"></div>
+      <div id="editor-container" />
 
-      <EditorJS holder="editor-container" onData={(data) => {console.log(data)}}/>
+      <EditorJS
+        holder="editor-container"
+        data={editorData}
+        onData={e => setEditorData(e)}
+      />
     </>
   );
 };

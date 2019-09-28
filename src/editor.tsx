@@ -1,120 +1,112 @@
 import React from 'react';
-import EditorJS,  { EditorConfig, OutputData } from '@editorjs/editorjs'
+import EditorJS, { EditorConfig, OutputData } from '@editorjs/editorjs';
 
-const noop = () => {};
-
-interface WrapperProps extends EditorConfig {
-  reinitOnPropsChange?: boolean,
-  onData?: (data : OutputData) => void;
+export interface WrapperProps extends EditorConfig {
+  reinitOnPropsChange?: boolean;
+  onData?: (data: OutputData) => void;
 }
 
-class EditorWrapper extends React.PureComponent<WrapperProps> {
+export class EditorWrapper extends React.PureComponent<WrapperProps> {
   /**
    * Node to append ref
    */
-  node = React.createRef<HTMLDivElement>();
+  private node = React.createRef<HTMLDivElement>();
 
   /**
    * Editor instance
    */
-  editor: EditorJS
+  public editor: EditorJS;
 
-  componentDidMount(){
-    const { holder , ...config } = this.props
-
-    const holderNode = holder !== null ? holder : this.getHolderNode();
-
-    this.editor = new EditorJS({
-      holder: holderNode,
-      ...config
-    })
+  componentDidMount() {
+    this.initEditor();
   }
 
-  async componentDidUpdate(){
+  async componentDidUpdate() {
     const { reinitOnPropsChange } = this.props;
 
-
-    if(reinitOnPropsChange){
+    if (reinitOnPropsChange) {
       const removed = await this.removeEditor();
-      if(removed){
-        this.initEditor()
+
+      if (removed) {
+        this.initEditor();
       }
     }
   }
 
-  componentWillUnmount(){
-    this.removeEditor()
+  componentWillUnmount() {
+    this.removeEditor();
   }
 
-
   async initEditor() {
-    const { holder, onChange, ...config } = this.props
+    const { holder, ...config } = this.props;
+    const { handleChange } = this;
 
-    const holderNode = holder !== null ? holder : this.getHolderNode();
+    const holderNode = !holder ? this.getHolderNode() : holder;
 
     this.editor = new EditorJS({
-      holder: holderNode,
       ...config,
-      
-      onChange: () => {console.log('A?')}
-    })
+      holder: holderNode,
+      onChange: handleChange,
+    });
   }
 
   handleChange = async () => {
-    console.log('handle change')
-    const onChange = this.props.onChange || noop;
-    const onData = this.props.onData || noop
-    
-    onChange();
+    const { onChange, onData } = this.props;
 
-    try {
-      const output = await this.editor.save()
-      console.log(output)
-      onData(output)
-
-    } catch (error) {
-      console.error('Saving failed: ', error) 
+    if (onChange && typeof onChange === 'function') {
+      onChange();
     }
-  }
 
+    if (onData && typeof onData === 'function') {
+      this.emitDataEvent(onData);
+    }
+  };
 
-  async removeEditor(): Promise<boolean> {
+  emitDataEvent = async (cb: (data: OutputData) => void) => {
+    try {
+      const output = await this.editor.save();
+      cb(output);
+    } catch (error) {
+      console.error('Saving failed: ', error);
+    }
+  };
+
+  removeEditor = async () => {
     if (this.editor) {
       try {
-        await this.editor.isReady
-      
-        this.editor.destroy()
+        await this.editor.isReady;
+
+        this.editor.destroy();
         delete this.editor;
 
         return true;
-      } catch(err){
+      } catch (err) {
         console.error(err);
-        return false
+        return false;
       }
     }
 
     return false;
-  }
+  };
 
-  getHolderNode = () =>{
+  getHolderNode = () => {
     const holder = this.node.current;
 
-    if(!holder){
-      throw('No node to append Editor.js');
+    if (!holder) {
+      throw 'No node to append Editor.js';
     }
 
-    return holder
-  }
+    return holder;
+  };
 
-  render(){
-    if(this.props.holder !== null){
-      return null
+  render() {
+    if (!this.props.holder) {
+      return <div ref={this.node} />;
     }
 
-    return <div ref={this.node}/>
+    return null;
   }
 }
 
 
-
-export default EditorWrapper;
+export default EditorWrapper

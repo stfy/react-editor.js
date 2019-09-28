@@ -7,25 +7,27 @@
     "native": false,
     "themeConfig": {},
     "separator": "-",
-    "typescript": true
+    "typescript": true,
+    "debug": true,
+    "files": "**/*.mdx"
   },
   "entries": [
     {
-      "key": "README.md",
+      "key": "example/example.mdx",
       "value": {
-        "id": "04c6e90faac2675aa89e2176d2eec7d8",
-        "filepath": "README.md",
-        "fullpath": "D:\\dev\\react-editor.js\\README.md",
+        "name": "Documentation",
+        "route": "/",
+        "id": "f38a23955578b56dc7aff9f229e6ecc1",
+        "filepath": "example/example.mdx",
+        "fullpath": "E:\\Tim\\react-editor.js\\example\\example.mdx",
         "link": "",
-        "slug": "readme",
-        "route": "/readme",
-        "name": "Readme",
+        "slug": "example-example",
         "menu": "",
         "headings": [
           {
-            "slug": "react-editorjs",
+            "slug": "getting-started",
             "depth": 1,
-            "value": "react-editor.js"
+            "value": "Getting Started"
           },
           {
             "slug": "install",
@@ -38,70 +40,24 @@
             "value": "Usage"
           },
           {
-            "slug": "props",
+            "slug": "examples",
             "depth": 2,
-            "value": "Props"
+            "value": "Examples"
           },
           {
-            "slug": "default-tools",
-            "depth": 2,
-            "value": "Default tools"
+            "slug": "use-ondata-callback",
+            "depth": 3,
+            "value": "Use onData callback"
           },
           {
-            "slug": "contributing",
-            "depth": 2,
-            "value": "Contributing"
+            "slug": "mount-to-custom-dom-node",
+            "depth": 3,
+            "value": "Mount to custom DOM node"
           },
           {
-            "slug": "license",
-            "depth": 2,
-            "value": "License"
-          }
-        ]
-      }
-    },
-    {
-      "key": "example/example.mdx",
-      "value": {
-        "name": "Example",
-        "route": "/example",
-        "id": "f38a23955578b56dc7aff9f229e6ecc1",
-        "filepath": "example/example.mdx",
-        "fullpath": "D:\\dev\\react-editor.js\\example\\example.mdx",
-        "link": "",
-        "slug": "example-example",
-        "menu": "",
-        "headings": [
-          {
-            "slug": "example",
-            "depth": 1,
-            "value": "Example"
-          },
-          {
-            "slug": "mount-to-another-node-by-id",
-            "depth": 2,
-            "value": "Mount to another node by id"
-          }
-        ]
-      }
-    },
-    {
-      "key": "src/index.mdx",
-      "value": {
-        "name": "Development",
-        "route": "/",
-        "component": "Editor",
-        "id": "6576455a124f9aaefd860597f03a8fe4",
-        "filepath": "src/index.mdx",
-        "fullpath": "D:\\dev\\react-editor.js\\src\\index.mdx",
-        "link": "",
-        "slug": "src-index",
-        "menu": "",
-        "headings": [
-          {
-            "slug": "hello-world",
-            "depth": 1,
-            "value": "Hello world"
+            "slug": "access-to-editorjs-instance",
+            "depth": 3,
+            "value": "Access to Editor.js instance"
           }
         ]
       }
@@ -109,42 +65,8 @@
   ],
   "props": [
     {
-      "key": "src\\editor.tsx",
-      "value": [
-        {
-          "description": "",
-          "displayName": "EditorWrapper",
-          "methods": [],
-          "props": {
-            "reinitOnPropsChange": {
-              "defaultValue": null,
-              "description": "",
-              "name": "reinitOnPropsChange",
-              "parent": {
-                "fileName": "src/editor.tsx",
-                "name": "WrapperProps"
-              },
-              "required": false,
-              "type": {
-                "name": "boolean | undefined"
-              }
-            },
-            "onData": {
-              "defaultValue": null,
-              "description": "",
-              "name": "onData",
-              "parent": {
-                "fileName": "src/editor.tsx",
-                "name": "WrapperProps"
-              },
-              "required": false,
-              "type": {
-                "name": "((data: OutputData) => void) | undefined"
-              }
-            }
-          }
-        }
-      ]
+      "key": "example\\custom-node.tsx",
+      "value": []
     }
   ]
 }

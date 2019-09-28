@@ -1,18 +1,116 @@
 ---
-name: Example
-route: '/example'
+name: Documentation
+route: '/'
 ---
-import { Playground, Props  } from 'docz'
+
+import { Playground } from 'docz'
 import EditorJS from '../src/editor';
 
-# Example
+# Getting Started
 
-## Mount to another node by id
+## Install
 
-<Playground>
+Install wrapper and plugins, which you want to use
+
+```bash
+npm install --save @stfy/react-editor.js @editorjs/header @editorjs/list
+
+// or Yarn
+
+yarn add @stfy/react-editor.js @editorjs/header @editorjs/list
+```
+
+## Usage 
+
+Import plugins and initialize Editor.js
+
+```jsx 
+import Editor from '@stfy/react-editor.js'
+import Header from '@editorjs/header'; 
+import List from '@editorjs/list'; 
+
+
+<Editor
+    tools={{
+      header: Header,
+      list: List
+    }}
+    onReady={() => console.log('Start!')}
+    data={{
+      "time" : 1569611146631,
+      "blocks" : [
+          {
+              "type" : "header",
+              "data" : {
+                  "text" : "Hello Editor.js",
+                  "level" : 2
+              }
+          },
+      ],
+      "version" : "2.15.0"
+    }}
+/>   
+```
+
+## Examples
+
+### Use onData callback
+
+Event data emits when callback after editor.save() executed
+
+<Playground showLivePreview={false}>
+    <EditorJS 
+        onData={data => console.log('Data emited:', data)}
+        data={{
+            "time" : 1569611146631,
+            "blocks" : [
+                {
+                    "type" : "paragraph",
+                    "data" : {
+                        "text" : "Hello Editor.js"
+                    }
+                },
+            ],
+            "version": "2.15.0",     
+        }}
+    />
+</Playground>
+
+
+### Mount to custom DOM node
+
+<Playground showLivePreview={false}>
     <div id="editor-container"></div>
-    
-    {/* Somewhere else */}
-    <EditorJS holder="editor-container" onData={(data) => {console.log(data)}}/>
-</Playground>   
+
+    <EditorJS 
+        holder="editor-container"
+        onData={e => console.log('data', e)}
+        onChange={e => console.log('change', e)} 
+        data={{
+            "time" : 1569611146631,
+            "blocks" : [
+                {
+                    "type" : "paragraph",
+                    "data" : {
+                        "text" : "Hello Editor.js"
+                    }
+                },
+            ],
+            "version": "2.15.0",     
+        }}
+    />
+</Playground>
+
+### Access to Editor.js instance
+
+```jsx
+const ref = React.useRef(null);
+        
+React.useEffect(() => {
+    ref.current.editor.clear()
+})    
+
+return <EditorJS ref={ref}/>
+```
+
 

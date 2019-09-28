@@ -7,11 +7,9 @@
   "browser": "dist/react-editorjs.umd.js",
   "scripts": {
     "clean": "rimraf dist",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server example/index.js --mode development",
-    "build": "rollup -c",
+    "build": "microbundle --compress",
     "lint": "eslint src",
     "prepublishOnly": "npm run lint && npm run clean && npm run build",
-    "test-build": "microbundle --compress",
     "docz:dev": "docz dev"
   },
   "keywords": [
@@ -25,15 +23,8 @@
   "author": "Semenyuk Timofey <timsql@yandex.ru>",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.4.3",
-    "@babel/plugin-proposal-class-properties": "^7.4.0",
-    "@babel/preset-env": "^7.4.3",
-    "@babel/preset-react": "^7.0.0",
     "@types/react": "^16.9.3",
     "@types/react-dom": "^16.9.1",
-    "babel-eslint": "^10.0.1",
-    "babel-loader": "^8.0.5",
-    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "cross-env": "^5.2.0",
     "docz": "^2.0.0-rc.44",
     "eslint": "^5.14.0",
@@ -46,39 +37,17 @@
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
     "eslint-watch": "^4.0.2",
-    "html-webpack-plugin": "^3.2.0",
     "jest": "^24.7.1",
     "microbundle": "^0.11.0",
     "prettier": "1.16.4",
-    "rimraf": "^2.6.3",
-    "rollup-plugin-babel": "^4.3.2",
-    "rollup-plugin-commonjs": "^9.3.4",
-    "terser-webpack-plugin": "^1.2.3",
-    "webpack": "^4.29.6",
-    "webpack-cli": "^3.3.0",
-    "webpack-dev-server": "^3.2.1"
+    "rimraf": "^2.6.3"
   },
   "peerDependencies": {
     "prop-types": "^15.x",
     "react": "^16.x"
   },
   "dependencies": {
-    "@editorjs/checklist": "^1.1.0",
-    "@editorjs/code": "^2.4.1",
-    "@editorjs/delimiter": "^1.1.0",
     "@editorjs/editorjs": "^2.12.4",
-    "@editorjs/embed": "^2.2.0",
-    "@editorjs/header": "^2.2.3",
-    "@editorjs/image": "^2.2.0",
-    "@editorjs/inline-code": "^1.3.0",
-    "@editorjs/link": "^2.1.2",
-    "@editorjs/list": "^1.3.4",
-    "@editorjs/marker": "^1.2.0",
-    "@editorjs/paragraph": "^2.5.0",
-    "@editorjs/quote": "^2.2.0",
-    "@editorjs/raw": "^2.1.1",
-    "@editorjs/table": "^1.2.0",
-    "@editorjs/warning": "^1.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   }
