@@ -8,14 +8,15 @@ export interface WrapperProps extends EditorConfig {
 
 export class EditorWrapper extends React.PureComponent<WrapperProps> {
   /**
-   * Node to append ref
-   */
-  private node = React.createRef<HTMLDivElement>();
-
-  /**
    * Editor instance
    */
   public editor: EditorJS;
+
+  
+  /**
+   * Node to append ref
+   */
+  private node = React.createRef<HTMLDivElement>();
 
   componentDidMount() {
     this.initEditor();
@@ -67,6 +68,7 @@ export class EditorWrapper extends React.PureComponent<WrapperProps> {
       const output = await this.editor.save();
       cb(output);
     } catch (error) {
+      // tslint:disable-next-line: no-console
       console.error('Saving failed: ', error);
     }
   };
@@ -81,6 +83,7 @@ export class EditorWrapper extends React.PureComponent<WrapperProps> {
 
         return true;
       } catch (err) {
+        // tslint:disable-next-line: no-console
         console.error(err);
         return false;
       }
@@ -93,7 +96,7 @@ export class EditorWrapper extends React.PureComponent<WrapperProps> {
     const holder = this.node.current;
 
     if (!holder) {
-      throw 'No node to append Editor.js';
+      throw new Error('No node to append Editor.js');
     }
 
     return holder;

@@ -5,13 +5,13 @@
   "main": "dist/react-editorjs.js",
   "umd:main": "dist/react-editorjs.umd.js",
   "module": "dist/react-editorjs.esm.js",
-  "source": "src/index.js",  
+  "source": "src/index.js",
   "browser": "dist/react-editorjs.umd.js",
   "types": "dist/editor.d.ts",
   "scripts": {
     "clean": "rimraf dist",
     "build": "microbundle",
-    "lint": "eslint src",
+    "lint": "tslint --fix -p tsconfig.json -c tslint.json",
     "prepublishOnly": "npm run lint && npm run clean && npm run build",
     "docz:dev": "docz dev"
   },
@@ -28,22 +28,13 @@
   "devDependencies": {
     "@types/react": "^16.9.3",
     "@types/react-dom": "^16.9.1",
-    "cross-env": "^5.2.0",
     "docz": "^2.0.0-rc.44",
-    "eslint": "^5.14.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^3.6.0",
-    "eslint-loader": "^2.1.2",
-    "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-jest": "^22.3.0",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-prettier": "^3.0.1",
-    "eslint-plugin-react": "^7.12.4",
-    "eslint-watch": "^4.0.2",
-    "jest": "^24.7.1",
     "microbundle": "^0.11.0",
     "prettier": "1.16.4",
-    "rimraf": "^2.6.3"
+    "rimraf": "^2.6.3",
+    "tslint": "^5.20.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-react": "^4.1.0"
   },
   "peerDependencies": {
     "prop-types": "^15.x",
