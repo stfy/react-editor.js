@@ -1,6 +1,6 @@
 {
   "name": "@stfy/react-editor.js",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "React wrapper component for Editor.js",
   "main": "dist/react-editorjs.js",
   "umd:main": "dist/react-editorjs.umd.js",
