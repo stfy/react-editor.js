@@ -3,6 +3,6 @@ dist
 lib
 .vscode
 yarn.lock
-.docz
+.docz/**
 !.docz/app
 .rts2*
