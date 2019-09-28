@@ -2,3 +2,6 @@ node_modules
 dist
 lib
 .vscode
+yarn.lock
+.docz/.cache
+.rts2*
