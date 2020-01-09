@@ -25,9 +25,10 @@ const App => (
   <>
     <Editor
         autofocus
-        holderId="editorjs-container"
+        holder="editorjs-container"
         excludeDefaultTools={['header']}
-        onChange={(data) => console.log(data)}
+        onChange={() => console.log('Something is changing!!')}
+        onData={(data) => console.log(data)}
         customTools={{
           header: CustomHeader
         }}
@@ -56,9 +57,10 @@ const App => (
 | Name                |    Type    |      Default      | Description                                   |
 | :------------------ | :--------: | :---------------: | :-------------------------------------------- |
 | autofocus           | `boolean`  |      `true`       | Set Caret to the Editor after initialisation  |
-| holderId            |  `string`  | `editorjs-holder` | Id of Element that should contain the Editor  |
+| holder            |  `string`  | `editorjs-holder` | Id of Element that should contain the Editor  |
 | onChange            | `function` |      `null`       | onChange callback                             |
 | onReady             | `function` |      `null`       | onReady callback                              |
+| onData              | `function` |      `null`       | onData callback; used to access data after onChange is called |
 | data                |  `object`  |      `null`       | Previously saved data that should be rendered |
 | customTools         |  `object`  |      `null`       | Set custom tools config or overwrite existed  |
 | excludeDefaultTools |  `array`   |      `null`       | Exclude default tool by tool name             |
