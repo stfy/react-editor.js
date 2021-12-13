@@ -65,8 +65,10 @@ export class EditorWrapper extends React.PureComponent<WrapperProps> {
 
   emitDataEvent = async (cb: (data: OutputData) => void) => {
     try {
-      const output = await this.editor.save();
-      cb(output);
+       setTimeout(async () => {
+        const output = await this.editor.save();
+        cb(output);
+      }, 50);
     } catch (error) {
       // tslint:disable-next-line: no-console
       console.error('Saving failed: ', error);
